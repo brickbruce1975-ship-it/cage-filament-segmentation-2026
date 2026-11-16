@@ -3,14 +3,16 @@
 Code for our Kaggle entries in the [Solar Filament Segmentation Challenge 2026](https://www.kaggle.com/competitions/filament-segmentation-2026)
 (team: James Mills, Kaggle `jamesmills1975`).
 
+The competition closed Mon Nov 16, 2026, 5:59:59 AM CT (11:59:59 UTC). Final standing: **391 of 1,567 teams**.
+
 We submitted two files:
 
-| entry | method | Kaggle ref | public PQ |
-|---|---|---|---|
-| **r16** | frozen public D-FINE-seg-S (Apache-2.0) | **58424634** | **0.38** |
-| r13 | U-Net + YOLO11s-seg fusion | 58336268 | 0.35 |
+| entry | method | Kaggle ref | public PQ | private PQ |
+|---|---|---|---|---|
+| **r16** | frozen public D-FINE-seg-S (Apache-2.0) | **58424634** | **0.38** | **0.36** |
+| r13 | U-Net + YOLO11s-seg fusion | 58336268 | 0.35 | 0.33 |
 
-r16 was submitted only after James overrode a pre-registered Gate 2 (margin) BLOCK. See [Results](#results) for the honest holdout numbers. The technical report is in [`report/`](report/) (`main.tex` and the figure PNGs).
+The public +0.03 of r16 over r13 held as +0.03 on the private test. r16 was submitted only after James overrode a pre-registered Gate 2 (margin) BLOCK. See [Results](#results) for the honest holdout numbers. The technical report is in [`report/`](report/) (`main.tex` and the figure PNGs).
 
 ## Layout
 
@@ -102,6 +104,7 @@ The published weights were trained on 80% of observation dates, so they cannot b
 - Gate 1 (point-estimate) **PASS**: gain +0.02821 vs. a bar of +0.015 (TP 201→205, FP 157→123, FN 112→108).
 - Gate 2 (margin, inherited k=4) **BLOCK**: mean paired delta +0.0325, 98.75% bootstrap lower bound −0.0118 (below 0). n=46 is too small at this reuse level.
 - James overrode the Gate 2 block (card t3577s17648) and the file was submitted through `submit_once.sh`. Public PQ **0.38** (Kaggle ref **58424634**), vs. 0.35 for r13. Submission CSV sha256: `7566598e23a7394ab0daf39e32dcf390b89c61f814b027ba780efd57b95e166a`.
+- After close (Mon Nov 16, 2026, 5:59:59 AM CT / 11:59:59 UTC), private PQ was **0.36** for r16 vs. **0.33** for r13 (ref 58336268). The public +0.03 held as +0.03 private. Final rank: **391 of 1,567 teams**.
 - That override did not change our two-pick final-selection settings.
 
 ## Later rounds (honest NO_PASS notes)
