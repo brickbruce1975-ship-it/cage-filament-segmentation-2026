@@ -1,0 +1,20 @@
+{
+  "id": "jamesmills1975/cage-filament-r16-dfine",
+  "title": "cage-filament-r16-dfine",
+  "code_file": "fil.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "competition_sources": [
+    "filament-segmentation-2026"
+  ],
+  "dataset_sources": [
+    "jamesmills1975/cage-filament-r16-dfine-w"
+  ],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -1,0 +1,4 @@
+# Frozen public weights are linked, not committed (~31 MB).
+*.pt
+__pycache__/
+*.pyc
