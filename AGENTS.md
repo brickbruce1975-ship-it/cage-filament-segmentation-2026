@@ -2,7 +2,7 @@
 
 <!-- CAGE_LEARNING_SYNC:BEGIN -->
 
-## CAGE learning process and ARC harnesses (synced 2026-11-23, update 2)
+## CAGE learning process and ARC harnesses (synced 2026-11-24, update 3)
 
 This repository is part of the CAGE fleet. Any model working here (Claude, ChatGPT/Codex, Gemini, Grok, Cursor,
 Copilot, or a local model through Ollama) uses the same learning process:
@@ -34,13 +34,23 @@ What the ARC-AGI competitions taught, for any task:
 What the 2026-11-23 Kaggle competitions and research added
 ([lessons](https://github.com/brickbruce1975-ship-it/cage-agi-ecosystem/blob/main/docs/lessons/COMPETITION_AND_RESEARCH_LESSONS_2026-11-23.md)):
 
-7. **Validate the way the test differs.** Group folds by what is really independent (near-duplicate sessions leaked),
-   and match test conditions before modelling (test photos were at a different scale).
-8. **Check every result for luck.** Recompute a total without its best day, work out the statistical power before
-   testing, and price any trading edge at your own latency and costs: no published retail memecoin edge survives them.
-9. **Measure against the field.** Place results on the Epoch AI frontier with
-   [`scripts/epoch_benchmark_tracker.py`](https://github.com/brickbruce1975-ship-it/cage-agi-orchestrator/blob/main/docs/EPOCH_BENCHMARK_TRACKER.md); count only held-out,
-   uncontaminated tests, and follow host rules even when a barred entry scores higher.
+- **Validate the way the test differs.** Group folds by what is really independent (near-duplicate sessions leaked),
+  and match test conditions before modelling (test photos were at a different scale).
+- **Check every result for luck.** Recompute a total without its best day, work out the statistical power before
+  testing, and price any trading edge at your own latency and costs: no published retail memecoin edge survives them.
+- **Measure against the field.** Place results on the Epoch AI frontier with
+  [`scripts/epoch_benchmark_tracker.py`](https://github.com/brickbruce1975-ship-it/cage-agi-orchestrator/blob/main/docs/EPOCH_BENCHMARK_TRACKER.md); count only held-out,
+  uncontaminated tests, and follow host rules even when a barred entry scores higher.
+
+What the 2026-11-23 model benchmark added
+([record](https://github.com/brickbruce1975-ship-it/cage-agi-orchestrator/blob/main/learning_loop/evidence/kbench-arc2-check-before-answering-2026-11-23/README.md)):
+
+- **Spend two attempts on different methods.** On 12 ARC-AGI-2 tasks Gemini 3 Flash solved 5 answering directly, 6
+  with check-and-repair and 7 with one attempt of each. A 2-versus-1 split on 12 items is noise, not a gain.
+- **A repair loop multiplies the base model; it cannot replace it.** gpt-oss-120b solved none either way: upgrade the
+  model before tuning the harness.
+- **Preflight credentials and the model list.** Refresh short-lived tokens before each unit of work, check that each
+  model exists, and record missing results as missing, never as zero.
 
 - **Security and sovereignty:** model-written code runs sandboxed (resource limits, no network, answers hidden). No
   secrets go in prompts, logs or commits. Owner data stays private, and local models are supported.
